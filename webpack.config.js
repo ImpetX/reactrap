@@ -4,6 +4,8 @@ var path = require('path');
 var webpack = require('webpack');
 var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
 var config = {
 
@@ -14,6 +16,12 @@ var config = {
         'source-map' is used.
     */
     devtool: 'source-map',
+
+    devServer: {
+        hot: true,  // enable HMR on the server
+        contentBase: path.resolve(__dirname, 'public'), // match the output path
+        publicPath: '/' // match the output `publicPath`
+    },
 
     resolve: {
         extensions: [
@@ -36,7 +44,12 @@ var config = {
     },
 
     entry: {
-        main: './src/index.jsx'
+        main: [
+            'react-hot-loader/patch',  // activate HMR for React
+            'webpack-dev-server/client?http://localhost:8080',  // bundle the client for webpack-dev-server and connect to the provided endpoint
+            'webpack/hot/only-dev-server',  // bundle the client for hot reloading for successful updates
+            './src/index.jsx'
+        ]
     },
 
     output: {
@@ -88,6 +101,12 @@ var config = {
     },
 
     plugins: [
+        // enable HMR globally
+        new webpack.HotModuleReplacementPlugin(),
+
+        // prints more readable module names in the browser console on HMR updates
+        new webpack.NamedModulesPlugin(), 
+        
         new BundleAnalyzerPlugin({
             analyzerMode: 'static',
             reportFilename: 'webpack-bundle-report.html',
@@ -113,7 +132,14 @@ var config = {
         new ExtractTextPlugin({
             filename: '[name].css',
             allChunks: true
-        })
+        }),
+
+        new HtmlWebpackPlugin({
+            template: 'index.html',
+            alwaysWriteToDisk: true
+        }),
+
+        new HtmlWebpackHarddiskPlugin()
     ]
 };
 
