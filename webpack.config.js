@@ -31,16 +31,7 @@ var config = {
         modules: [
             'node_modules',
             path.resolve(__dirname, 'src')
-        ],
-
-        alias: {
-            modules: path.resolve(__dirname, 'src/modules'),
-            styles: path.resolve(__dirname, 'src/stylesheet'),
-            images: path.resolve(__dirname, 'src/assets/images'),
-            fonts: path.resolve(__dirname, 'src/assets/fonts'),
-            Firebase: path.resolve(__dirname, 'src/firebase'),
-            lib: path.resolve(__dirname, 'src/lib')
-        }
+        ]
     },
 
     entry: {
