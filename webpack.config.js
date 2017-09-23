@@ -6,6 +6,17 @@ var BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlug
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+var CleanWebpackPlugin = require('clean-webpack-plugin');
+
+// the path(s) that should be cleaned
+var pathsToClean = [
+    'public'
+  ]
+  
+// the clean options to use
+var cleanOptions = {
+    verbose: true
+}
 
 var config = {
 
@@ -102,6 +113,8 @@ var config = {
     },
 
     plugins: [
+        new CleanWebpackPlugin(pathsToClean, cleanOptions),
+
         // enable HMR globally
         new webpack.HotModuleReplacementPlugin(),
 
