@@ -25,7 +25,7 @@ var config = {
 
     resolve: {
         extensions: [
-            '.js', ".jsx", '.css'
+            '.js', ".jsx", '.css', '.scss'
         ],
 
         modules: [
