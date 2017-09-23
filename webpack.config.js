@@ -70,7 +70,7 @@ var config = {
             },
 
             {
-                test: /\.css?$/,
+                test: /\.(css|scss)?$/,
                 use: ExtractTextPlugin.extract(
                     {
                         fallback: "style-loader",
@@ -78,7 +78,7 @@ var config = {
                             {
                                 loader: 'css-loader',
                                 options: {
-                                    sourceMap: true,
+                                    sourceMap: false,
                                     modules: true,
                                     localIdentName: '[name]-[local][hash:base64:5]',
                                     importLoaders: 1
@@ -87,6 +87,13 @@ var config = {
 
                             {
                                 loader: 'postcss-loader'
+                            },
+
+                            {
+                                loader: 'sass-loader',
+                                options: {
+                                    sourceMap: true
+                                }
                             }
                         ]
                     }

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './css/Test';
+import styles from './css/Test.scss';
 
 const Test = () => (
     <h2 className={styles.h2}>Change me to see HMR is working :)</h2>
