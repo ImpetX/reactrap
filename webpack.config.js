@@ -80,10 +80,7 @@ var config = {
                             {
                                 loader: 'css-loader',
                                 options: {
-                                    sourceMap: false,
-                                    modules: true,
-                                    localIdentName: '[name]-[local][hash:base64:5]',
-                                    importLoaders: 1
+                                    sourceMap: true
                                 }
                             },
 
