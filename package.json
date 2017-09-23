@@ -4,6 +4,7 @@
   "description": "Bootstrap meets React to enhance re-usability",
   "main": "src/index.js",
   "scripts": {
+    "storybook": "webpack && start-storybook -p 9001 -c storybook/.storybook",
     "start": "webpack-dev-server",
     "dev": "webpack -w"
   },
@@ -31,6 +32,7 @@
     "react-dom": "^15.6.1"
   },
   "devDependencies": {
+    "@storybook/react": "^3.2.10",
     "autoprefixer": "^7.1.4",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
