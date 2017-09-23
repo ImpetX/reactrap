@@ -86,11 +86,14 @@ var config = {
                             },
 
                             {
-                                loader: 'postcss-loader'
+                                loader: 'sass-loader',
+                                options: {
+                                    sourceMap: true
+                                }
                             },
 
                             {
-                                loader: 'sass-loader',
+                                loader: 'postcss-loader',
                                 options: {
                                     sourceMap: true
                                 }
