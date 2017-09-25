@@ -4,8 +4,6 @@ import { AppContainer } from 'react-hot-loader'; // AppContainer is a necessary 
 
 import '../node_modules/bootstrap/scss/bootstrap';
 
-import Test from './components/test/Test';
-
 const APP = document.getElementById('app');
 
 const render = (Component) => {
@@ -17,12 +15,12 @@ const render = (Component) => {
   );
 };
 
-render(Test);
+render();
 
 // Hot Module Replacement API
 if (module.hot) {
-  module.hot.accept('./components/test/Test', () => {
-    const NewApp = require('./components/test/Test').default
+  module.hot.accept('./components/..', () => {
+    const NewApp = require('./components/..').default
     render(NewApp)
   });
 }
