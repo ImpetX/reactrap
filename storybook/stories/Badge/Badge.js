@@ -1,5 +1,6 @@
 import React from 'react';
 import {storiesOf} from '@storybook/react';
+import {action} from '@storybook/addon-actions';
 
 import Badge from '../../../src/components/Badge/Badge.jsx';
 
@@ -7,7 +8,7 @@ storiesOf('Badge', module)
     .add('default', () => (
         <Badge
             label='Default'
-            onClick={() => {console.log('Badge Clicked')}}/>
+            onClick={action('Badge clicked!')}/>
     ))
 
     .add('with Anchor Tag', () => (
