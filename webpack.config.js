@@ -11,8 +11,8 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 // the path(s) that should be cleaned
 var pathsToClean = [
     'public'
-  ]
-  
+]
+
 // the clean options to use
 var cleanOptions = {
     verbose: true
