@@ -20,7 +20,7 @@ describe('Badge', () => {
         it(`Should have specified type class badge-${type}`, () => {
             const wrapper = shallow(<Badge type={type} />);
 
-            expect(wrapper.find('.badge').hasClass(`badge-${type}`)).toEqual(true);
+            expect(wrapper.hasClass(`badge-${type}`)).toEqual(true);
         });
     });
 });
