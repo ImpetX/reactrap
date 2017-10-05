@@ -37,13 +37,13 @@ describe('Badge', () => {
         expect(wrapper.hasClass('badge-pill')).toEqual(false);
     });
 
-    it('Should have anchor tag', () => {
+    it('Should have anchor tag when href is provided', () => {
         const wrapper = shallow(<Badge href='#' />);
 
         expect(wrapper.type()).toEqual('a');
     });
 
-    it('Should Not have anchor tag', () => {
+    it('Should Not have anchor tag when href is not provided', () => {
         const wrapper = shallow(<Badge />);
 
         expect(wrapper.type()).not.toEqual('a');
