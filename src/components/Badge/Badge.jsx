@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
+import badgeTypes from './badgeType';
+
 const Badge = (props) => {
     let badgeClass = classNames({
         [props.className]: props.className,
@@ -30,16 +32,7 @@ Badge.propTypes = {
         PropTypes.string
     ]),
     className: PropTypes.string,
-    type: PropTypes.oneOf([
-        'primary',
-        'secondary',
-        'success',
-        'danger',
-        'warning',
-        'info',
-        'light',
-        'dark'
-    ]),
+    type: PropTypes.oneOf(badgeTypes),
     pill: PropTypes.bool,
     target: PropTypes.oneOf([
         '_self',

@@ -1,11 +1,26 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import {shallow, mount} from 'enzyme';
 import Badge from '../Badge';
+import badgeTypes from '../badgeType';
 
 describe('Badge', () => {
-    it('should render children', () => {
-        const wrapper = shallow(<Badge label='test test' />);
+    it('Should render label', () => {
+        const wrapper = shallow(<Badge label='label' />);
 
-        expect(wrapper.text()).toBe('test test');
+        expect(wrapper.text()).toBe('label');
+    });
+
+    it('Should not render label', () => {
+        const wrapper = shallow(<Badge label='label' />);
+
+        expect(wrapper.text()).not.toBe('not label');
+    });
+
+    badgeTypes.forEach(type => {
+        it(`Should have specified type class badge-${type}`, () => {
+            const wrapper = shallow(<Badge type={type} />);
+
+            expect(wrapper.find('.badge').hasClass(`badge-${type}`)).toEqual(true);
+        });
     });
 });
