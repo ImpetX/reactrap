@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "storybook": "webpack && start-storybook -p 9001 -c storybook/.storybook",
     "start": "webpack-dev-server",
     "dev": "webpack -w"
