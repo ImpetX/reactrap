@@ -48,4 +48,12 @@ describe('Badge', () => {
 
         expect(wrapper.type()).not.toEqual('a');
     });
+
+    it('Should respond to the click event', () => {
+        console.log = jest.fn();
+        const wrapper = shallow(<Badge onClick={() => console.log('Clicked!')}/>);
+
+        wrapper.simulate('click');
+        expect(console.log).toHaveBeenCalledWith('Clicked!');
+    });
 });
