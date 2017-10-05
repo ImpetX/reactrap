@@ -1,5 +1,6 @@
 import React from 'react';
-import {shallow, mount} from 'enzyme';
+import {shallow} from 'enzyme';
+
 import Badge from '../Badge';
 import badgeTypes from '../badgeType';
 
