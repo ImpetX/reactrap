@@ -11,7 +11,7 @@ describe('Badge', () => {
         expect(wrapper.text()).toBe('label');
     });
 
-    it('Should not render label', () => {
+    it('Should Not render label', () => {
         const wrapper = shallow(<Badge label='label' />);
 
         expect(wrapper.text()).not.toBe('not label');
@@ -23,5 +23,29 @@ describe('Badge', () => {
 
             expect(wrapper.hasClass(`badge-${type}`)).toEqual(true);
         });
+    });
+
+    it('Should have class badge-pill', () => {
+        const wrapper = shallow(<Badge pill />);
+
+        expect(wrapper.hasClass('badge-pill')).toEqual(true);
+    });
+
+    it('Should Not have class badge-pill', () => {
+        const wrapper = shallow(<Badge />);
+
+        expect(wrapper.hasClass('badge-pill')).toEqual(false);
+    });
+
+    it('Should have anchor tag', () => {
+        const wrapper = shallow(<Badge href='#' />);
+
+        expect(wrapper.type()).toEqual('a');
+    });
+
+    it('Should Not have anchor tag', () => {
+        const wrapper = shallow(<Badge />);
+
+        expect(wrapper.type()).not.toEqual('a');
     });
 });
